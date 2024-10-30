@@ -1,0 +1,5 @@
+name: quarkus-barcode
+title: Barcode
+version: dev
+nav:
+  - modules/ROOT/nav.adoc
