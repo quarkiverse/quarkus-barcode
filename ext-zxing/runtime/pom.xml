@@ -27,7 +27,7 @@
             <optional>false</optional>
             <exclusions>
                 <exclusion>
-                    <groupId>org.jcommander</groupId>
+                    <groupId>com.beust</groupId>
                     <artifactId>jcommander</artifactId>
                 </exclusion>
             </exclusions>
