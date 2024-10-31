@@ -9,7 +9,7 @@
     </parent>
     <groupId>io.quarkiverse.barcode</groupId>
     <artifactId>quarkus-barcode-parent</artifactId>
-    <version>999-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>pom</packaging>
     <name>Quarkus Barcode - Parent</name>
     <description>Barcode and QRCode support for Quarkus</description>
@@ -25,7 +25,8 @@
         <connection>scm:git:git@github.com:quarkiverse/quarkus-barcode.git</connection>
         <developerConnection>scm:git:git@github.com:quarkiverse/quarkus-barcode.git</developerConnection>
         <url>https://github.com/quarkiverse/quarkus-barcode</url>
-    </scm>
+      <tag>0.0.1</tag>
+  </scm>
 
     <properties>
         <compiler-plugin.version>3.13.0</compiler-plugin.version>
