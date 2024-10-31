@@ -10,26 +10,31 @@
 [![Build](https://github.com/quarkiverse/quarkus-barcode/actions/workflows/build.yml/badge.svg)](https://github.com/quarkiverse/quarkus-barcode/actions/workflows/build.yml)
 
 
-## Welcome to Quarkiverse!
+## Overview
 
-Congratulations and thank you for creating a new Quarkus extension project in Quarkiverse!
+A Quarkus extension for supporting various barcode libraries in the Quarkus ecosystem and ensuring Native mode is supported.
 
-Feel free to replace this content with the proper description of your new project and necessary instructions how to use and contribute to it.
+The following libraries are supported:
+- [Barcode4J](https://barcode4j.sourceforge.net/) used in Quarkus PrimeFaces/JasperReports
+- [Okapi](https://github.com/woo-j/OkapiBarcode) comprehensive barcode library
+- [QR Code Generator](https://github.com/nayuki/QR-Code-generator) used in Quarkus PrimeFaces
+- [Zebra Crossing](https://github.com/zxing/zxing) used in Quarkus Rendarde
 
-You can find the basic info, Quarkiverse policies and conventions in [the Quarkiverse wiki](https://github.com/quarkiverse/quarkiverse/wiki).
+> [!NOTE]
+> The main purpose of this extension is to make these libraries work in a native executable built with GraalVM/Mandrel.
 
-In case you are creating a Quarkus extension project for the first time, please follow [Building My First Extension](https://quarkus.io/guides/building-my-first-extension) guide.
+## Getting started
 
-Other useful articles related to Quarkus extension development can be found under the [Writing Extensions](https://quarkus.io/guides/#writing-extensions) guide category on the [Quarkus.io](https://quarkus.io) website.
+Read the full [Quarkus Barcode documentation](https://docs.quarkiverse.io/quarkus-barcode/dev/index.html).
 
-Thanks again, good luck and have fun!
+### Prerequisite
 
-## Documentation
+* Create or use an existing Quarkus application
+* Add the specific extension(s) you need [Quarkus CLI](https://quarkus.io/guides/cli-tooling):
 
-The documentation for this extension should be maintained as part of this repository and it is stored in the `docs/` directory.
-
-The layout should follow the [Antora's Standard File and Directory Set](https://docs.antora.org/antora/2.3/standard-directories/).
-
-Once the docs are ready to be published, please open a PR including this repository in the [Quarkiverse Docs Antora playbook](https://github.com/quarkiverse/quarkiverse-docs/blob/main/antora-playbook.yml#L7). See an example [here](https://github.com/quarkiverse/quarkiverse-docs/pull/1)
-
-Your documentation will then be published to the <https://docs.quarkiverse.io/> website.
+```bash
+quarkus ext add io.quarkiverse.barcode:quarkus-barcode4j
+quarkus ext add io.quarkiverse.barcode:quarkus-okapi
+quarkus ext add io.quarkiverse.barcode:quarkus-qrcodegen
+quarkus ext add io.quarkiverse.barcode:quarkus-zxing
+```
