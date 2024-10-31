@@ -20,6 +20,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 import javax.imageio.ImageIO;
 
@@ -38,23 +39,18 @@ import uk.org.okapibarcode.backend.Code128;
 import uk.org.okapibarcode.backend.HumanReadableLocation;
 import uk.org.okapibarcode.graphics.Color;
 import uk.org.okapibarcode.output.Java2DRenderer;
+import uk.org.okapibarcode.output.SvgRenderer;
 
 @Path("/okapi")
 @ApplicationScoped
 public class OkapiResource extends BaseImageResource {
 
     @GET
-    @Path("code128")
+    @Path("code128/png")
     @APIResponse(responseCode = "200", description = "Document downloaded", content = @Content(mediaType = MediaType.APPLICATION_OCTET_STREAM, schema = @Schema(type = SchemaType.STRING, format = "binary")))
     public Response code128() throws IOException {
         try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
-            Code128 barcode = new Code128();
-            barcode.setFontName("Monospaced");
-            barcode.setFontSize(16);
-            barcode.setModuleWidth(2);
-            barcode.setBarHeight(50);
-            barcode.setHumanReadableLocation(HumanReadableLocation.BOTTOM);
-            barcode.setContent("123456789");
+            Code128 barcode = createCode128();
 
             int width = barcode.getWidth();
             int height = barcode.getHeight();
@@ -69,5 +65,29 @@ public class OkapiResource extends BaseImageResource {
             // return the image
             return buildImageResponse(outputStream.toByteArray(), PNG_MIME_TYPE, "okapi-code128.png");
         }
+    }
+
+    @GET
+    @Path("code128/svg")
+    @APIResponse(responseCode = "200", description = "Document downloaded", content = @Content(mediaType = MediaType.APPLICATION_OCTET_STREAM, schema = @Schema(type = SchemaType.STRING, format = "binary")))
+    public Response code128Svg() throws IOException {
+        try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+            Code128 barcode = createCode128();
+            SvgRenderer renderer = new SvgRenderer(outputStream, 1, Color.WHITE, Color.BLACK, true);
+            renderer.render(barcode);
+            String svg = stripWhitespace(outputStream.toString());
+            return buildImageResponse(svg.getBytes(StandardCharsets.UTF_8), SVG_MIME_TYPE, "okapi-code128.svg");
+        }
+    }
+
+    private Code128 createCode128() {
+        Code128 barcode = new Code128();
+        barcode.setFontName("Monospaced");
+        barcode.setFontSize(16);
+        barcode.setModuleWidth(2);
+        barcode.setBarHeight(50);
+        barcode.setHumanReadableLocation(HumanReadableLocation.BOTTOM);
+        barcode.setContent("123456789");
+        return barcode;
     }
 }

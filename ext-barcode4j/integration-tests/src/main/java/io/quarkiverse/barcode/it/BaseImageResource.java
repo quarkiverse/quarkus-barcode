@@ -6,6 +6,7 @@ import jakarta.ws.rs.core.Response;
 public class BaseImageResource {
     public static final String CONTENT_DISPOSITION = "attachment;filename=%s";
     public static final String PNG_MIME_TYPE = "image/png";
+    public static final String SVG_MIME_TYPE = "image/svg+xml";
 
     /**
      * Builds a Response containing image data with appropriate headers.
