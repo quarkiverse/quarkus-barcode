@@ -22,7 +22,7 @@ The following libraries are supported:
 - [Barcode4J](https://barcode4j.sourceforge.net/) used in Quarkus PrimeFaces/JasperReports
 - [Okapi](https://github.com/woo-j/OkapiBarcode) comprehensive barcode library
 - [QR Code Generator](https://github.com/nayuki/QR-Code-generator) used in Quarkus PrimeFaces
-- [Zebra Crossing](https://github.com/zxing/zxing) used in Quarkus Renarde
+- [Zebra Crossing](https://github.com/zxing/zxing) used in Quarkus Renarde, Quarkus QR
 
 > [!NOTE]
 > The main purpose of this extension is to make these libraries work in a native executable built with GraalVM/Mandrel.
