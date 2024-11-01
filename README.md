@@ -29,10 +29,6 @@ The following libraries are supported:
 
 ## Getting started
 
-Read the full [Quarkus Barcode documentation](https://docs.quarkiverse.io/quarkus-barcode/dev/index.html).
-
-### Prerequisite
-
 * Create or use an existing Quarkus application
 * Add the specific extension(s) you need [Quarkus CLI](https://quarkus.io/guides/cli-tooling):
 
