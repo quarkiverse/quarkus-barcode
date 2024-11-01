@@ -59,6 +59,7 @@ public class OkapiResource extends BaseImageResource {
             Graphics2D g2d = image.createGraphics();
             Java2DRenderer renderer = new Java2DRenderer(g2d, 1, Color.WHITE, Color.BLACK);
             renderer.render(barcode);
+            g2d.dispose();
 
             ImageIO.write(image, "png", outputStream);
 

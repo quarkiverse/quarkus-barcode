@@ -12,4 +12,4 @@ metadata:
     - "quarkus.barcode.barcode4j."
   status: "stable"
   guide: "https://docs.quarkiverse.io/quarkus-barcode/dev/index.html"
-  icon-url: "http://primefaces-extensions.github.io/images/barcode4j-logo.gif"
+  icon-url: "https://raw.githubusercontent.com/quarkiverse/quarkus-barcode/main/docs/modules/ROOT/assets/images/barcode4j.svg"
