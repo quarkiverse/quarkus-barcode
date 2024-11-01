@@ -16,8 +16,7 @@
 */
 package io.quarkiverse.barcode.it;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,13 +31,11 @@ import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 
-import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
-import com.google.zxing.WriterException;
-import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
-import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+
+import io.quarkiverse.barcode.zxing.ZebraCrossing;
 
 @Path("/zxing")
 @ApplicationScoped
@@ -47,27 +44,22 @@ public class ZxingResource extends BaseImageResource {
     @GET
     @Path("qr/png")
     @APIResponse(responseCode = "200", description = "Document downloaded", content = @Content(mediaType = MediaType.APPLICATION_OCTET_STREAM, schema = @Schema(type = SchemaType.STRING, format = "binary")))
-    public Response qrCodePng() throws IOException, WriterException {
-        try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
-            // QR Code writer
-            QRCodeWriter qrCodeWriter = new QRCodeWriter();
+    public Response qrCodePng() {
+        // Set error correction level and encoding options
+        Map<EncodeHintType, Object> hints = new HashMap<>();
+        hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
+        hints.put(EncodeHintType.CHARACTER_SET, StandardCharsets.UTF_8.name());
 
-            // Set error correction level and encoding options
-            Map<EncodeHintType, Object> hints = new HashMap<>();
-            hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
-            hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
+        int width = 300;
+        int height = 300;
 
-            int width = 300;
-            int height = 300;
+        // Generate QR Code as BitMatrix
+        BitMatrix bitMatrix = ZebraCrossing.qrCode("Quarkus Rocks!", width, height, hints);
 
-            // Generate QR Code as BitMatrix
-            BitMatrix bitMatrix = qrCodeWriter.encode("Quarkus Rocks!", BarcodeFormat.QR_CODE, width, height, hints);
+        // Generate PNG
+        byte[] png = ZebraCrossing.barcodetoPng(bitMatrix);
 
-            // Generate PNG
-            MatrixToImageWriter.writeToStream(bitMatrix, "PNG", outputStream);
-
-            // return the image
-            return buildImageResponse(outputStream.toByteArray(), PNG_MIME_TYPE, "zxing-code128.png");
-        }
+        // return the image
+        return buildImageResponse(png, PNG_MIME_TYPE, "zxing-code128.png");
     }
 }
