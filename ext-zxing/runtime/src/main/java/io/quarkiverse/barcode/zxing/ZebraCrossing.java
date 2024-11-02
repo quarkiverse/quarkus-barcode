@@ -6,11 +6,19 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Map;
 
-import com.google.zxing.*;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.datamatrix.DataMatrixWriter;
-import com.google.zxing.oned.*;
+import com.google.zxing.oned.Code128Writer;
+import com.google.zxing.oned.Code39Writer;
+import com.google.zxing.oned.Code93Writer;
+import com.google.zxing.oned.EAN13Writer;
+import com.google.zxing.oned.EAN8Writer;
+import com.google.zxing.oned.UPCAWriter;
+import com.google.zxing.oned.UPCEWriter;
 import com.google.zxing.qrcode.QRCodeWriter;
 
 /**
@@ -182,10 +190,23 @@ public class ZebraCrossing {
         return dataUriImg(dataMatrix(value, width, height));
     }
 
+    /**
+     * Converts a BitMatrix barcode to an HTML img tag with embedded PNG data URI.
+     *
+     * @param encoded The BitMatrix containing the barcode data
+     * @return String containing an HTML img tag with the barcode as a data URI
+     */
     public static String dataUriImg(BitMatrix encoded) {
         return dataUriImg(base64ToDataUri(pngToBase64(barcodetoPng(encoded))));
     }
 
+    /**
+     * Converts a BitMatrix barcode to a PNG byte array.
+     *
+     * @param encoded The BitMatrix containing the barcode data
+     * @return byte array containing the PNG data
+     * @throws RuntimeException if the image cannot be written
+     */
     public static byte[] barcodetoPng(BitMatrix encoded) {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         try {
@@ -196,18 +217,42 @@ public class ZebraCrossing {
         return out.toByteArray();
     }
 
+    /**
+     * Converts a PNG byte array to a Base64 encoded string.
+     *
+     * @param png The PNG byte array to convert
+     * @return String containing the Base64 encoded PNG data
+     */
     public static String pngToBase64(byte[] png) {
         return Base64.getEncoder().encodeToString(png);
     }
 
+    /**
+     * Creates a PNG data URI string from Base64 encoded data.
+     *
+     * @param base64 The Base64 encoded PNG data
+     * @return String containing the PNG data URI
+     */
     public static String base64ToDataUri(String base64) {
         return "data:image/png;base64," + base64;
     }
 
+    /**
+     * Wraps a data URI in an HTML img tag.
+     *
+     * @param dataUri The data URI to wrap
+     * @return String containing an HTML img tag with the data URI as the src
+     */
     public static String dataUriImg(String dataUri) {
         return "<img src='" + dataUri + "'/>";
     }
 
+    /**
+     * Gets the default encoding hints used for barcode generation.
+     * Sets UTF-8 as the default character set.
+     *
+     * @return Map containing the default encoding hints
+     */
     private static Map<EncodeHintType, ?> getHints() {
         return Map.of(EncodeHintType.CHARACTER_SET, StandardCharsets.UTF_8.name());
     }

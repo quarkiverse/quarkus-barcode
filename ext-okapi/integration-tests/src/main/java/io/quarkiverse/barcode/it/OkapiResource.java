@@ -16,13 +16,9 @@
 */
 package io.quarkiverse.barcode.it;
 
-import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-
-import javax.imageio.ImageIO;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.GET;
@@ -35,11 +31,9 @@ import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 
+import io.quarkiverse.barcode.okapi.Okapi;
 import uk.org.okapibarcode.backend.Code128;
 import uk.org.okapibarcode.backend.HumanReadableLocation;
-import uk.org.okapibarcode.graphics.Color;
-import uk.org.okapibarcode.output.Java2DRenderer;
-import uk.org.okapibarcode.output.SvgRenderer;
 
 @Path("/okapi")
 @ApplicationScoped
@@ -49,36 +43,49 @@ public class OkapiResource extends BaseImageResource {
     @Path("code128/png")
     @APIResponse(responseCode = "200", description = "Document downloaded", content = @Content(mediaType = MediaType.APPLICATION_OCTET_STREAM, schema = @Schema(type = SchemaType.STRING, format = "binary")))
     public Response code128() throws IOException {
-        try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
-            Code128 barcode = createCode128();
+        Code128 barcode = createCode128();
 
-            int width = barcode.getWidth();
-            int height = barcode.getHeight();
+        int width = barcode.getWidth();
+        int height = barcode.getHeight();
 
-            BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_GRAY);
-            Graphics2D g2d = image.createGraphics();
-            Java2DRenderer renderer = new Java2DRenderer(g2d, 1, Color.WHITE, Color.BLACK);
-            renderer.render(barcode);
-            g2d.dispose();
-
-            ImageIO.write(image, "png", outputStream);
-
-            // return the image
-            return buildImageResponse(outputStream.toByteArray(), PNG_MIME_TYPE, "okapi-code128.png");
-        }
+        BufferedImage image = Okapi.generateBarcodePng(barcode, width, height);
+        byte[] bytes = Okapi.pngToBytes(image);
+        // return the image
+        return buildImageResponse(bytes, PNG_MIME_TYPE, "okapi-code128.png");
     }
 
     @GET
     @Path("code128/svg")
     @APIResponse(responseCode = "200", description = "Document downloaded", content = @Content(mediaType = MediaType.APPLICATION_OCTET_STREAM, schema = @Schema(type = SchemaType.STRING, format = "binary")))
     public Response code128Svg() throws IOException {
-        try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
-            Code128 barcode = createCode128();
-            SvgRenderer renderer = new SvgRenderer(outputStream, 1, Color.WHITE, Color.BLACK, true);
-            renderer.render(barcode);
-            String svg = stripWhitespace(outputStream.toString());
-            return buildImageResponse(svg.getBytes(StandardCharsets.UTF_8), SVG_MIME_TYPE, "okapi-code128.svg");
-        }
+        Code128 barcode = createCode128();
+        String svg = stripWhitespace(Okapi.generateBarcodeSvgAsString(barcode));
+        return buildImageResponse(svg.getBytes(StandardCharsets.UTF_8), SVG_MIME_TYPE, "okapi-code128.svg");
+    }
+
+    @GET
+    @Path("code128/eps")
+    @APIResponse(responseCode = "200", description = "Document downloaded", content = @Content(mediaType = MediaType.APPLICATION_OCTET_STREAM, schema = @Schema(type = SchemaType.STRING, format = "binary")))
+    public Response code128Postscript() throws IOException {
+        Code128 barcode = createCode128();
+        String eps = stripWhitespace(Okapi.generateBarcodePostscriptAsString(barcode));
+        return buildImageResponse(eps.getBytes(StandardCharsets.UTF_8), POSTSCRIPT_MIME_TYPE, "okapi-code128.eps");
+    }
+
+    @GET
+    @Path("ean13/png/base64")
+    @APIResponse(responseCode = "200", description = "Document downloaded", content = @Content(mediaType = MediaType.APPLICATION_OCTET_STREAM, schema = @Schema(type = SchemaType.STRING, format = "binary")))
+    public Response ean13PngBase64() throws IOException {
+        String image = Okapi.ean13Png("123456789012+12345", 300, 300);
+        return buildImageResponse(image, PNG_MIME_TYPE, "okapi-ean13.png");
+    }
+
+    @GET
+    @Path("ean13/svg/base64")
+    @APIResponse(responseCode = "200", description = "Document downloaded", content = @Content(mediaType = MediaType.APPLICATION_OCTET_STREAM, schema = @Schema(type = SchemaType.STRING, format = "binary")))
+    public Response ean13SvgBase64() throws IOException {
+        String image = Okapi.ean13Svg("123456789012+12345", 2.0);
+        return buildImageResponse(image, SVG_MIME_TYPE, "okapi-ean13.svg");
     }
 
     private Code128 createCode128() {
