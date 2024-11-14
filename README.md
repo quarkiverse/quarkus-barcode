@@ -20,7 +20,7 @@ A Quarkus extension for supporting various barcode libraries in the Quarkus ecos
 
 The following libraries are supported:
 - [Barcode4J](https://barcode4j.sourceforge.net/) used in Quarkus PrimeFaces/JasperReports
-- [Okapi](https://github.com/woo-j/OkapiBarcode) comprehensive barcode library
+- [Okapi](https://github.com/woo-j/OkapiBarcode) comprehensive barcode library used in Quarkus Roq
 - [QR Code Generator](https://github.com/nayuki/QR-Code-generator) used in Quarkus PrimeFaces
 - [Zebra Crossing](https://github.com/zxing/zxing) used in Quarkus Renarde, Quarkus QR
 
