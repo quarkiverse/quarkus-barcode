@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.quarkiverse.barcode</groupId>
         <artifactId>quarkus-barcode-parent</artifactId>
-        <version>999-SNAPSHOT</version>
+        <version>0.0.3</version>
     </parent>
     <artifactId>quarkus-okapi-parent</artifactId>
     <packaging>pom</packaging>
