@@ -19,8 +19,8 @@
 A Quarkus extension for supporting various barcode libraries in the Quarkus ecosystem and ensuring Native mode is supported.
 
 The following libraries are supported:
-- [Barcode4J](https://barcode4j.sourceforge.net/) used in Quarkus JasperReports and Quarkus PrimeFaces (v14-)
 - [Okapi](https://github.com/woo-j/OkapiBarcode) comprehensive barcode library used in Quarkus Roq and Quarkus PrimeFaces (v15+)
+- [Barcode4J](https://barcode4j.sourceforge.net/) used in Quarkus JasperReports and Quarkus PrimeFaces (v14-)
 - [QR Code Generator](https://github.com/nayuki/QR-Code-generator) used in Quarkus PrimeFaces (v14-)
 - [Zebra Crossing](https://github.com/zxing/zxing) used in Quarkus Renarde, Quarkus QR
 
