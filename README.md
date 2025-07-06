@@ -1,8 +1,11 @@
 <div align="center">
+  <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+    <img src="https://raw.githubusercontent.com/quarkiverse/.github/main/assets/images/quarkus.svg" alt="Quarkus logo" style="height: 70px; width: auto;">
+    <img src="https://raw.githubusercontent.com/quarkiverse/.github/main/assets/images/plus-sign.svg" alt="Plus sign" style="height: 70px; width: auto;">
+    <img src="https://raw.githubusercontent.com/quarkiverse/quarkus-barcode/main/docs/modules/ROOT/assets/images/qrcode.svg" alt="Barcode logo" style="height: 70px; width: auto;">
+  </div>
 
-<img src="https://github.com/quarkiverse/.github/blob/main/assets/images/quarkus.svg" width="67" height="70" ><img src="https://github.com/quarkiverse/.github/blob/main/assets/images/plus-sign.svg" height="70" ><img src="https://github.com/quarkiverse/quarkus-barcode/blob/main/docs/modules/ROOT/assets/images/qrcode.svg" height="70" >
-
-# Quarkus Barcode
+  <h1>Quarkus Barcode</h1>
 </div>
 <br>
 
