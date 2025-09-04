@@ -6,7 +6,7 @@ TIP: Describe what the extension does here.
 
 == Installation
 
-If you want to use this extension, you need to add the `io.quarkiverse.barcode:quarkus-barcode` extension first to your build file.
+If you want to use this extension, you need to add the `io.quarkiverse.barcode:quarkus-qrcodegen` extension first to your build file.
 
 For instance, with Maven, add the following dependency to your POM file:
 
