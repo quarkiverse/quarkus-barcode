@@ -2,19 +2,67 @@
 
 include::./includes/attributes.adoc[]
 
-TIP: Describe what the extension does here.
+A collection of extensions for generating and decoding various types of barcodes in Quarkus applications, using popular libraries such as Barcode4J, ZXing, Okapi, and QRCodeGen.
 
 == Installation
 
-If you want to use this extension, you need to add the `io.quarkiverse.barcode:quarkus-barcode` extension first to your build file.
+This extension provides support for different barcode generation and decoding libraries. Choose the module that best fits your needs and add it to your project.
 
-For instance, with Maven, add the following dependency to your POM file:
+The available modules are:
+
+- Barcode4J
+- Okapi
+- QR Code Generator
+- Zebra Crossing
+
+=== Barcode4J
+
+To use the `Barcode4J` integration, with Maven, add the following dependency to your POM file:
 
 [source,xml,subs=attributes+]
 ----
 <dependency>
     <groupId>io.quarkiverse.barcode</groupId>
-    <artifactId>quarkus-barcode</artifactId>
+    <artifactId>quarkus-barcode4j</artifactId>
+    <version>{project-version}</version>
+</dependency>
+----
+
+=== Okapi
+
+To use the `Okapi` integration, with Maven, add the following dependency to your POM file:
+
+[source,xml,subs=attributes+]
+----
+<dependency>
+    <groupId>io.quarkiverse.barcode</groupId>
+    <artifactId>quarkus-okapi</artifactId>
+    <version>{project-version}</version>
+</dependency>
+----
+
+=== QR Code Generator
+
+To use the `QR Code Generator` integration, with Maven, add the following dependency to your POM file:
+
+[source,xml,subs=attributes+]
+----
+<dependency>
+    <groupId>io.quarkiverse.barcode</groupId>
+    <artifactId>quarkus-qrcodegen</artifactId>
+    <version>{project-version}</version>
+</dependency>
+----
+
+=== Zebra Crossing
+
+To use the `Zebra Crossing` integration, with Maven, add the following dependency to your POM file:
+
+[source,xml,subs=attributes+]
+----
+<dependency>
+    <groupId>io.quarkiverse.barcode</groupId>
+    <artifactId>quarkus-zxing</artifactId>
     <version>{project-version}</version>
 </dependency>
 ----
