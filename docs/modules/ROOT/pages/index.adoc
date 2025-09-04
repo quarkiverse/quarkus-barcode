@@ -14,7 +14,7 @@ For instance, with Maven, add the following dependency to your POM file:
 ----
 <dependency>
     <groupId>io.quarkiverse.barcode</groupId>
-    <artifactId>quarkus-barcode</artifactId>
+    <artifactId>quarkus-qrcodegen</artifactId>
     <version>{project-version}</version>
 </dependency>
 ----
