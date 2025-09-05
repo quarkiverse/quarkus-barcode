@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.quarkiverse.barcode</groupId>
         <artifactId>quarkus-qrcodegen-parent</artifactId>
-        <version>999-SNAPSHOT</version>
+        <version>1.0.2</version>
     </parent>
     <artifactId>quarkus-qrcodegen</artifactId>
     <name>Quarkus QR Code Generator - Runtime</name>
