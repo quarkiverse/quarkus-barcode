@@ -14,3 +14,4 @@ metadata:
   status: "stable"
   guide: "https://docs.quarkiverse.io/quarkus-barcode/dev/index.html"
   icon-url: "https://raw.githubusercontent.com/quarkiverse/quarkus-barcode/main/docs/modules/ROOT/assets/images/qrcode.svg"
+  lib-ga: uk.org.okapibarcode:okapibarcode[https://github.com/woo-j/OkapiBarcode]
