@@ -33,7 +33,7 @@
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <quarkus.version>3.27.1</quarkus.version>
+        <quarkus.version>3.33.2.1</quarkus.version>
     </properties>
 
     <dependencyManagement>
@@ -54,7 +54,8 @@
                 <plugin>
                     <groupId>io.quarkus</groupId>
                     <artifactId>quarkus-maven-plugin</artifactId>
-                    <version>${quarkus.version}</version>
+		    <version>${quarkus.version}</version>
+		    <extensions>true</extensions>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
