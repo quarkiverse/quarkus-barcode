@@ -1,0 +1,143 @@
+{
+  "foreign": {
+    "directUpcalls": [
+      {
+        "class": "sun.font.HBShaper",
+        "method": "get_glyph_contour_point",
+        "returnType": "jint",
+        "parameterTypes": [
+          "void*",
+          "void*",
+          "jint",
+          "jint",
+          "void*",
+          "void*",
+          "void*"
+        ]
+      },
+      {
+        "class": "sun.font.HBShaper",
+        "method": "store_layout_results",
+        "returnType": "void",
+        "parameterTypes": [
+          "jint",
+          "jint",
+          "jint",
+          "jfloat",
+          "jfloat",
+          "jfloat",
+          "jint",
+          "jint",
+          "void*",
+          "void*"
+        ]
+      },
+      {
+        "class": "sun.font.HBShaper",
+        "method": "get_glyph_h_advance",
+        "returnType": "jint",
+        "parameterTypes": [
+          "void*",
+          "void*",
+          "jint",
+          "void*"
+        ]
+      },
+      {
+        "class": "sun.font.HBShaper",
+        "method": "get_variation_glyph",
+        "returnType": "jint",
+        "parameterTypes": [
+          "void*",
+          "void*",
+          "jint",
+          "jint",
+          "void*",
+          "void*"
+        ]
+      },
+      {
+        "class": "sun.font.HBShaper",
+        "method": "get_glyph_v_advance",
+        "returnType": "jint",
+        "parameterTypes": [
+          "void*",
+          "void*",
+          "jint",
+          "void*"
+        ]
+      },
+      {
+        "class": "sun.font.HBShaper",
+        "method": "get_nominal_glyph",
+        "returnType": "jint",
+        "parameterTypes": [
+          "void*",
+          "void*",
+          "jint",
+          "void*",
+          "void*"
+        ]
+      }
+    ],
+    "upcalls": [
+      {
+        "returnType": "jint",
+        "parameterTypes": [
+          "jint",
+          "void*"
+        ]
+      }
+    ],
+    "downcalls": [
+      {
+        "returnType": "void",
+        "parameterTypes": [
+          "jfloat",
+          "void*",
+          "void*",
+          "void*",
+          "jint",
+          "jint",
+          "jint",
+          "jint",
+          "jint",
+          "jfloat",
+          "jfloat",
+          "jint",
+          "jint",
+          "void*",
+          "void*"
+        ]
+      },
+      {
+        "returnType": "void*",
+        "parameterTypes": [
+          "jlong"
+        ]
+      },
+      {
+        "returnType": "void*",
+        "parameterTypes": [
+          "void*",
+          "void*",
+          "void*",
+          "void*",
+          "void*"
+        ]
+      },
+      {
+        "returnType": "void*",
+        "parameterTypes": [
+          "void*"
+        ]
+      },
+      {
+        "returnType": "void",
+        "parameterTypes": [
+          "void*"
+        ]
+      }
+    ]
+  }
+}
