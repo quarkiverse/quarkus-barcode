@@ -53,6 +53,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "paloliska",
+      "name": "Pavol Liška",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9842132?v=4",
+      "profile": "https://github.com/paloliska",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
