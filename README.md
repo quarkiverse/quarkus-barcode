@@ -14,7 +14,7 @@
 [![Build](https://github.com/quarkiverse/quarkus-barcode/actions/workflows/build.yml/badge.svg)](https://github.com/quarkiverse/quarkus-barcode/actions/workflows/build.yml)
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Overview
@@ -56,6 +56,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="http://stephane.epardaud.fr"><img src="https://avatars.githubusercontent.com/u/179265?v=4?s=100" width="100px;" alt="Stéphane Épardaud"/><br /><sub><b>Stéphane Épardaud</b></sub></a><br /><a href="#maintenance-FroMage" title="Maintenance">🚧</a> <a href="https://github.com/quarkiverse/quarkus-barcode/commits?author=FroMage" title="Tests">⚠️</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/gastaldi"><img src="https://avatars.githubusercontent.com/u/54133?v=4?s=100" width="100px;" alt="George Gastaldi"/><br /><sub><b>George Gastaldi</b></sub></a><br /><a href="#infra-gastaldi" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/kauanmocelin"><img src="https://avatars.githubusercontent.com/u/3020794?v=4?s=100" width="100px;" alt="Kauan Mocelin"/><br /><sub><b>Kauan Mocelin</b></sub></a><br /><a href="https://github.com/quarkiverse/quarkus-barcode/commits?author=kauanmocelin" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/paloliska"><img src="https://avatars.githubusercontent.com/u/9842132?v=4?s=100" width="100px;" alt="Pavol Liška"/><br /><sub><b>Pavol Liška</b></sub></a><br /><a href="https://github.com/quarkiverse/quarkus-barcode/commits?author=paloliska" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
