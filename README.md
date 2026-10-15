@@ -41,6 +41,16 @@ quarkus ext add io.quarkiverse.barcode:quarkus-okapi
 quarkus ext add io.quarkiverse.barcode:quarkus-qrcodegen
 quarkus ext add io.quarkiverse.barcode:quarkus-zxing
 ```
+
+## Compatibility
+
+| Quarkus Barcode version | Quarkus version |
+| ----------------------- | --------------- |
+| 1.2.x                   | 3.33.4+         |
+| 2.x                     | 4.0.0.Beta1+    |
+
+2.x targets Quarkus 4 and requires JDK 21. If you are still on Quarkus 3, stay on 1.2.x, which is maintained from the `1.x` branch.
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
